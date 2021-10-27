@@ -10,7 +10,6 @@ function a(num){
 }
 // a(0);
 
-
 var res = 0;
 
  for(var i=0;i<101;i++){
@@ -83,7 +82,7 @@ console.log(maxNumber+'最大值')
     }
     console.log(h+'总和');
 
-
+student('WY1111',500)
 /**
 函数练习题：输入学生姓名，输入考试成绩	
 若是100,【恭喜你***，满分通过！】
@@ -95,11 +94,11 @@ console.log(maxNumber+'最大值')
  function student(name,num){
       if(num==100){
         console.log('恭喜你'+name+','+'满分通过！')
-      }else if(80<=num<100){
+      }else if(80<=num && num<100){
         console.log(name+','+'你很优秀，继续保持！')
-      }else if(60<=num<80){
+      }else if(60<=num && num<80){
         console.log(name+'成绩良好')
-      }else if(50<=num<60){
+      }else if(50<=num && num<60){
         console.log(name+'就差一点点，下次一定要至少及格')
       }else{
         console.log(name+'你是笨蛋吗')
@@ -107,4 +106,6 @@ console.log(maxNumber+'最大值')
  }
 
  student('WY',100)
+
+
   
