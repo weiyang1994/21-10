@@ -26,5 +26,7 @@
  *    查看当前状态： git status
  *    查看当前的改动： git diff
  *    查看已提交的改动： git show  提交点的log标识
+ *    查看日志： git log
+ *    按行查看日志： git log --oneline
  * 
  */
