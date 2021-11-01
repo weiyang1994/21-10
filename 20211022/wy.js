@@ -105,7 +105,54 @@ student('WY1111',500)
       }
  }
 
- student('WY',100)
+//  student('WY',100)
 
+//  每过20ms打印一个字符串：第几次打印，当前时间是 xx时xx分xx秒； 一共打印6次
+//  var num =1
+// var d = setInterval(function(){
+//   var t= new Date();
+//   console.log('第',num,'次打印','当前时间是'+t.getHours()+'时',t.getMinutes(),'分',t.getSeconds(),'秒')
+//   num=num+1;
+//   if(num>6){
+//     clearInterval(d);
+//   }
+// },2000)
+// 声明一个函数，函数刚开始调用时打印字符串：xx函数开始调用了。  然后过5s打印：距离xx函数调用已经过去了5s了。
+   function wy1(){
+    console.log('wy1函数开始调用了')
+      setTimeout(function(){
+        console.log('距离wy1函数调用已经过去5s了');
+      },5000)  
+      
+   }
+// wy1();
 
-  
+function p (){
+  var pp='';
+  for(var i=0;i<8;i++){
+    let count = 0;
+    while(count <= i) {
+      pp = pp + '*';
+      if(count === i) {
+        pp = pp + '\n'
+      }
+      count ++;
+    }
+  }
+  console.log(pp)
+}
+p();
+// *\n**\n***\n****\n
+function p1() {
+  var pp1 = ''
+  for(var i=0;i<8;i++){
+    for(var j=0;j<=i;j++){
+      pp1=pp1+'*';
+      if(j==i){
+        pp1=pp1+'\n';
+      }
+    }
+  }
+  console.log(pp1)
+}
+p1();

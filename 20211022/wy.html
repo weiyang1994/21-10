@@ -5,9 +5,37 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <style>
+    .fk{
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+  </style>
 </head>
 <body>
+  <div class="fk">10</div>
+
+
+
+
+
+
+
+
    <script>
+      var int=setInterval(clock,1000);
+      var divObj = document.getElementsByClassName("fk")[0];
+      let init = divObj.innerHTML;
+      function clock() {
+        init = init - 1;
+        divObj.innerHTML= init + '倒计时';
+        if(init == 0) {
+          clearInterval(int)
+          divObj.style.display = 'none'
+        }
+      }
+      
       console.log('wy')  
       var a = {};
       a.name = 'xx';
