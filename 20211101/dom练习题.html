@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        button {
+            margin: 10px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+  <button id="btn">隐藏</button>
+  <div>生命壹号 </div>
+
+  <div id="page">
+    <div class="content main">
+        <div class="refer">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+            </ul>
+         </div>
+    </div>
+</div>
+  <script>
+    // 1、题目：点击按钮时，显示和隐藏盒子；隐藏之后按钮文案变成显示
+    
+
+    /**
+        2、题目：要求点击任何一个元素，返回它在事件冒泡时所经过的元素
+        如果元素有id，那么打印id
+        如果有className，那么打印className
+        否则打印小写标签名
+
+        例如：点击li时，返回：html body #page .content.main .refer ul li
+    */
+
+    // 3、题目：自己封装hasChildren()方法，不可用children属性
+
+    /** 
+        4、将目标节点内部的节点顺序，逆序。
+        eg: <div> <a></a> <em></em></div>
+        ->  <div><em></em><a></a></div>
+    */
+
+  </script>
+</body>
