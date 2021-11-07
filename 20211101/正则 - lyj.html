@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let s = 'aabab';
+    let s1 = 'aAbab';
+    let s2 = 'aAABab';
+    // a任意内容b
+    let reg = /^a.*?b/;
+    let reg1 = /^a.*?b/;
+    let reg2 = /^a.*?b/i;
+    let reg3 = /a.{0,1}?b/;
+    console.log(reg.exec(s))
+    console.log(reg1.exec(s1))
+    console.log(reg1.exec(s2))
+    console.log(reg2.exec(s2))
+    console.log(reg3.exec(s2))
+
+    // 匹配邮箱的正则  132@163.com
+    let regEmil = /.{5,10}@.*\.com/
+    console.log(regEmil.exec('shdkfh@1.com'))  
+  </script>
+</body>
+</html>

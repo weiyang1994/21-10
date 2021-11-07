@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    .con {
+      /* position: relative; */
+      width: 200px;
+      height: 200px;
+      border: 1px solid pink;
+    }
+
+    .con p {
+      position: absolute;
+      top: 50px;
+      left: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="contentWrap" class="content" style="border: 1px solid red;">
+    <span>这是内容1</span>
+    <p id='p1'>这是内容1111</p>
+
+  </div>
+  <!--  -->
+
+  <div class="content con">
+    <p>这是内容22</p>
+  </div>
+
+  <ul id="ulWrap">
+    <li>第1个li的内容</li>
+    <li>第2个li的内容</li>
+    <li>第3个li的内容</li>
+    <li>第4个li的内容</li>
+    <li>第5个li的内容</li>
+  </ul>
+
+  <script>
+    let p3 = document.getElementsByClassName('con')[0];
+    let p31 = p3.getElementsByTagName('p')[0]
+    console.log(p31.offsetParent)
+    console.log(p31.offsetHeight, p31.offsetWidth, p31.offsetTop, p31.offsetLeft)
+
+
+
+
+    let o1 = document.getElementById('contentWrap');
+    let p2 = document.getElementById('p1');
+    // o1.removeChild(p2)
+
+    let newO = document.createElement('span');
+    newO.innerHTML = '00000'
+    // o1.appendChild(newO)
+    // o1.removeChild(newO)
+    o1.replaceChild(newO, p2)
+
+    console.log(o1.className)
+    console.log(o1.id)
+    console.log(o1.style)
+    console.log(o1.style.border)
+    o1.style.color = 'green'
+
+    console.log(o1.getAttribute('id'))
+    // o1.setAttribute('class', 'contttttt')
+    console.log(o1.className)
+
+    console.log(o1.nodeName, o1.nodeType, o1.nodeValue,p2.nodeType);
+    let oSpan = document.getElementsByTagName('span')[0];
+    console.log(oSpan.nodeType);
+    console.log(o1.className);
+
+    console.log(o1.childNodes)
+  </script>
+
+</body>
+</html>
