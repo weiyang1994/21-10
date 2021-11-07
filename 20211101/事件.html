@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      margin-bottom: 10px;
+    }
+    .content {
+      width: 50px;
+      height: 40px;
+      background: pink;
+    }
+    .content1 {
+      background: orange;
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML事件处理程序 -->
+  <div class="content" onclick="javascript:alert('11111')"></div>
+  <div class="content" onclick="htmlClick()"></div>
+
+
+  <!-- DOM 零级 -->
+  <div id="con" class="content content1">DOM 零级</div>
+  <button class="btn0">清除上边div的事件</button>
+
+  <!-- DOM 二级 -->
+  <div class="content">DOM 二级</div>
+  <button class="btn2">清除上边div的事件</button>
+
+  <script>
+
+
+    window.onload = function() {
+      obj0.onclick = null;
+    }
+
+    function htmlClick() {
+      alert('222222222')
+    }
+
+    // DOM 零级
+    let obj0 = document.getElementsByClassName('content')[2];
+    console.log('魏 ---- obj0', obj0)
+    obj0.onclick = function(event) {
+      alert('33333DOM 零级')
+      console.log(event, event.target, event.target.innerHTML)
+    }
+
+    // 清除DOM 零级
+    let btn1 = document.getElementsByClassName('btn0')[0];
+    btn1.onclick = function() {
+      obj0.onclick = null;
+      alert('清除成功')
+    }
+
+
+
+    // ---------------------
+    // DOM 二级
+    let obj2 = document.getElementsByClassName('content')[3];
+    obj2.onclick = function(){
+      alert('DOM 二级 0000')
+    }
+    obj2.onclick = function(){
+      alert('DOM 二级 0000  ----1111111')
+    }
+    // 匿名函数法绑定事件，没法取消
+    obj2.addEventListener('click', function(e) {
+      alert('DOM 二级')
+      console.log(e)
+    })
+    // 具名函数法绑定事件，可以取消
+    obj2.addEventListener('click', doubleFun);
+    function doubleFun() {
+      alert('DOM 二级 1111111')
+    }
+    obj2.addEventListener('click', doubleFun1, true);
+    function doubleFun1() {
+      alert('DOM 二级 1111111 ---22222222')
+    }
+
+    let btn2 = document.getElementsByClassName('btn2')[0];
+    btn2.onclick = function() {
+      obj2.onclick = null
+      obj2.removeEventListener('click', doubleFun)
+      obj2.removeEventListener('click', doubleFun1)
+    }
+  </script>
+</body>
+</html>
