@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    // let type = 'cat';
+    let type = 'dog';
+
+    switch(type) {
+      case 'cat':
+        console.log('这是cat');
+        break;
+      case 'dog':
+        // 做一些操作
+        alert('dog');
+        break;
+      default:
+        console.log('默认事件');
+    }
+
+    let count = 0;
+    // 当满足这个条件就执行; ---先判断再执行
+    while(count > 10) {
+      console.log('数字', count);
+      if(count === 5) {
+        break;
+      }
+      count ++;
+    }
+
+    // 
+    let num = 0;
+    // 执行某些操作直到不满足条件  ----先执行再判断
+    do {
+      console.log('do-while 数字', num)
+      if(num === 5) {
+        break;
+      }
+      num ++;
+    } while(num < 10)
+
+    // 
+    for(let i = 0; i < 10; i++) {
+      console.log('for循环---前边', i)
+      if(i === 3) {
+        continue
+      }
+      console.log('for循环', i)
+      if(i === 8) {
+        break;
+      }
+    }
+
+    for(let m = 0; m < 5; m++){
+      console.log('外层循环--------------', m)
+      if(m === 3) {
+        continue
+      }
+      for(let n = 0; n < 3; n++) {
+        if(n == 1) {
+          break
+        }
+        console.log('里层循环----', n)
+      }
+    }
+  </script>
+</body>
+</html>
