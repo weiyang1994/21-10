@@ -69,7 +69,7 @@ console.log('--------------------以上是第一部分的内容')
   * Man 的原型对象上有个 __proto__ 指向 Object 的原型对象
   */
  console.log(Man.prototype.__proto__ === Object.prototype)
- console.log(person1.__proto__.__proto__.__proto__ === Object.prototype)
+ console.log(person1.__proto__.__proto__.__proto__ === Object.prototype) //xx
  /**
   * 原型链的终点是 Object，所以 Object 的原型对象不是任何对象的实例
   * Object 的原型对象的 __proto__ 指向 null
