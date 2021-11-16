@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    let obj = {};
+
+    Object.defineProperty(obj, 'name', {
+      configurable: true,  //属性是否可改，是否可删除
+      enumerable: true,  //该属性是否可枚举，在遍历的时候有差异
+      value: 'weiyang',
+      writable: true,  //值是否可以再赋值
+    })
+
+    Object.defineProperty(obj, 'age', {
+      configurable: false,
+      enumerable: false,
+      value: 25,
+      writable: false,
+    })
+
+    Object.defineProperty(obj, 'sex', {
+      value: '男'
+    })
+
+    // delete obj.name
+    // delete obj.age
+    // delete obj.sex
+
+    Object.defineProperty(obj, 'height', {
+      // value: '150',
+      setter() {
+        return '200'
+      },
+      getter() {
+        return '300'
+      }
+    })
+
+    obj.name = 'weiyang1'
+    obj.age = 34
+    obj.height = '500'
+
+    console.log(obj)
+
+    for(let key in obj) {
+      console.log('----', key, obj[key])
+    }
+
+    console.log(Object.keys(obj))
+
+    let ownProperty = Object.getOwnPropertyNames(obj);
+    console.log(ownProperty);
+    for(let i = 0; i< ownProperty.length; i ++) {
+      const item = ownProperty[i];
+      console.log(obj[item])
+    }
+  </script>
+</body>
+</html>

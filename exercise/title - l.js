@@ -1,19 +1,5 @@
 /**记录练习题，做了的剪切到对应的文件 */
-/**
- * 查找数组对象中 age 大于 18 对象
-  编写函数 filterAdult,满足
-  filterAdult([
-      {age: 19, name:'Jack'},
-      {age: 5, name:'Apple'},
-      {age: 12, name:'Lynn'},
-      {age: 25, name:'David'}
-  ]);
-  // 输出
-  [
-    {age: 19, name:'Jack'},
-    {age: 25, name:'David'}
-  ]
- */
+
 /**
  * 判断数组中是否所有的数字都大于 0
   编写函数 isAllNumPosive,满足
