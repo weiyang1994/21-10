@@ -1,13 +1,6 @@
 /**记录练习题，做了的剪切到对应的文件 */
 
-/**
- * 判断数组中是否所有的数字都大于 0
-  编写函数 isAllNumPosive,满足
 
-  isAllNumPosive([1, 2, 3, 4]);  // 输出 true
-  isAllNumPosive([1, 2, 3, 4, -1]);  // 输出 false
-  isAllNumPosive([1, 2, 3, 4, 'a', {a:3}]);  // 输出 true
- */
 /**
  * 改变传入的数组，将数组中第 n(从 0 开始算 ) 个元素放到数组的开头
   编写函数 putFirst,满足
