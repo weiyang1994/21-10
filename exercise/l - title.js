@@ -1,14 +1,23 @@
 /**记录练习题，做了的剪切到对应的文件 */
 
-
-
-
-
-
 // flex布局（问常用的布局方式？  实现 123 元素， 展示321） 实现一个元素水平居中
 // 翻转数组
 
+/**
+ *  let i=1;
+    console.log(1-(++i)+(i--)+1+(i++)-(--i)-1);
+    console.log(i);
+ */
 
+/**
+ * 简述字符串截取方法 substr 、 substring 、 slice 三者的区别
+ */
+/**
+ * url问号传参解析, parseUrl()
+ * 输入： "https://phab.hillinsight.tech/project/board/42/query/open/?order=owner", 输出： { order: 'owner' }
+ * 输入： "http://www.baidu.com?name=lyj&age=20&sex=nan",  输出： { name: 'lyj', age: '20', sex: 'nan'}
+ * 
+ */
 // 
 // 3.设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“。
 // 4.编制一个从字符串中收集数字字符（"0″‘,"1″，…"9″）的函数CollectDigits(s)，它从字符串s中顺序取出数字，并且合并为一个独立的字符串作为函数的返回值。例如函数调用CollectDigits(“1abc23def4″）的返回值是字符串"1234″。
@@ -129,4 +138,33 @@
       getArrayDeep([[1], [2]]) // 1
       getArrayDeep([[1, [2]]]) // 2
       getArrayDeep([[[[]]]]) // 3
+ */
+
+/**
+ * 填空题：
+    var object = {}
+    object.__proto__ ===  ????填空1????  // 为 true
+
+    var fn = function(){}
+    fn.__proto__ === ????填空2????  // 为 true
+    fn.__proto__.__proto__ === ????填空3???? // 为 true
+
+    var array = []
+    array.__proto__ === ????填空4???? // 为 true
+    array.__proto__.__proto__ === ????填空5???? // 为 true
+
+    Function.__proto__ === ????填空6???? // 为 true
+    Array.__proto__ === ????填空7???? // 为 true
+    Object.__proto__ === ????填空8???? // 为 true
+
+    true.__proto__ === ????填空9???? // 为 true
+
+    Function.prototype.__proto__ === ????填空10???? // 为 true
+ */
+/**
+ * function Fn(){
+    console.log(this)
+  }
+  new Fn();
+  问题： new Fn() 会执行 Fn，并打印出 this，请问这个 this 有哪些属性？这个 this 的原型有哪些属性？
  */
