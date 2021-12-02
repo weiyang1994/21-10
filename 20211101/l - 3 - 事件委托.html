@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 300px;
+            background: pink;
+        }
+
+        li {
+            width: 100px;
+            height: 30px;
+            margin: 20px;
+            background-color: skyblue;
+            font-size: 30px;
+            text-align: center;
+            line-height: 30px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <button>添加</button>
+    <ul>
+        <li>第1个</li>
+        <li>第2个</li>
+        <li>第3个</li>
+        <li>第4个</li>
+        <li>第5个</li>
+    </ul>
+</body>
+
+</html>
+<script>
+  /**
+   * 1、点击添加按钮，添加一行li
+   * 2、点击每个li的时候，将li的颜色变红，其他li保持不变
+  */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  // var btn = document.querySelector('button')
+  // var ul = document.querySelector('ul')
+  // var lis = ul.children
+  // var count = 6
+  // btn.addEventListener('click', btn_fn)
+  // function btn_fn() {
+  //     var li = document.createElement('li')
+  //     li.innerHTML = `第${count}个`
+  //     ul.appendChild(li)
+  //     count++
+  // }
+
+  // ul.addEventListener('click', ul_fn, true)
+  // 第一种方法
+  /*  function ul_fn() {
+      for (var i = 0; i < lis.length; i++) {
+          lis[i].addEventListener('click', lis_fn, true)
+      }
+      function lis_fn() {
+          for (var j = 0; j < lis.length; j++) {
+              lis[j].style.backgroundColor = 'skyblue'
+          }
+          this.style.backgroundColor = 'red'
+      }
+  } */
+
+  // 第二种方法
+  // function ul_fn(e) {
+  //     if (e.target.nodeName == 'LI') {
+  //         for (var i = 0; i < lis.length; i++) {
+  //             lis[i].style.backgroundColor = 'skyblue'
+  //         }
+  //         e.target.style.backgroundColor = 'red'
+  //     }
+  // }
+
+
+</script>
