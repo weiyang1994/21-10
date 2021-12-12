@@ -12,14 +12,10 @@
     function curry(func) {
 
       return function curried(...args) {
-        console.log('0.1111111', func.length)
         if (args.length >= func.length) {
-          console.log('0000000000', args)
           return func.apply(this, args);
         } else {
-          console.log('111111', args)
           return function(...args2) {
-            console.log('2222222 第一个参数：', args, '当前参数：', args2)
             return curried.apply(this, args.concat(args2));
           }
         }
@@ -29,17 +25,14 @@
     function sum(a, b, c) {
       return a + b + c;
     }
-    // function sum(...args) {
-    //   return args.reduce((a, b) => a + b, args[0]);
-    // }
 
     let curriedSum = curry(sum);
+    console.log(curriedSum)
 
     // alert( curriedSum(1, 2, 3) ); // 6，仍然可以被正常调用
     // alert( curriedSum(1)(2,3) ); // 6，对第一个参数的柯里化
     alert( curriedSum(1)(2)(3) ); // 6，全柯里化
 
-    // curriedSum()
   </script>
 </body>
 </html>

@@ -35,6 +35,11 @@
     // })
 
 
+    // window['aaa'] = function(data) {
+    //     console.log(data);
+    //     // document.body.removeChild(script);
+    //   }
+
     function jsonp1({ url, params, callback }) {
       let script = document.createElement('script');
       window[callback] = function(data) {
@@ -42,19 +47,36 @@
         document.body.removeChild(script);
       }
       params = { ...params, callback };
+      console.log('---- params', params)
       let arr = [];
       for(let key in params) {
         arr.push(`${key}=${params[key]}`)
       }
+      console.log('----arr', arr)
       script.src = `${url}?${arr.join('&')}`
       document.body.appendChild(script)
+      
+    }
+    // http://localhost:3000/say?name=%27%27&age=23&callback=%27aaa%27
+// age=23, name='aaa'    join("&")
+    // jsonp1({
+    //   url: 'http://localhost:3000/say',
+    //   params: { wd: 'I love you' },
+    //   callback: 'aaa'
+    // })
+
+
+    // jsonp
+    function successFun(data) {
+      console.log(data)
+    }
+    function jsonp2() {
+      let script = document.createElement('script');
+      script.src = `http://localhost:3000/say?wd='参数内容'&callback=successFun`;
+      document.body.appendChild(script);
     }
 
-    jsonp1({
-      url: 'http://localhost:3000/say',
-      params: { wd: 'I love you' },
-      callback: 'aaa'
-    })
+    jsonp2();
   </script>
 </body>
 </html>

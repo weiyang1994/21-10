@@ -134,7 +134,7 @@ function  bubbleSort(arr){
 function sortAge(arr){
     for(let i=0;i<=arr.length-1;i++){ 
        let item = arr[i];
-       console.log(item.age)
+      //  console.log(item.age)
        for (let j=0; j<=arr.length-2-i; j ++){
          if (arr[j].age>arr[j+1].age){
             let temp = arr[j];
@@ -167,6 +167,198 @@ function num(){
 
 function ros(){
   var num = Math.floor((Math.random() * 100) + 1);
-  console.log('随机数是'+num)
+  // console.log('随机数是'+num)
 }
 ros();
+
+// 3.设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“
+ 
+ 
+ function time(){
+  var  d = new Date();
+  console.log(d)
+ var y = d.getFullYear();
+ var m = d.getMonth()+1;
+ var day = d.getDate();
+ var h = d.getHours();
+ var min = d.getMinutes();
+ var s = d.getSeconds();
+ var X = d.getDay()
+ console.log(y)
+ var pp = document.getElementById('df');
+ pp.innerHTML='现在是'+y+'年'+m+'月'+day+'日'+h+'点'+min+'分'+s+'秒'+'（星期'+X+')';
+ }
+//  time();
+// 4.编制一个从字符串中收集数字字符的函数CollectDigits(s)，它从字符串s中顺序取出数字，
+// 并且合并为一个独立的字符串作为函数的返回值。例如函数调用CollectDigits(“1abc23def4″）的返回值是字符串"1234″。
+function collectDigits(s){
+  //  let t= '';
+  //   // for(var i =0;i<s.length;i++){
+  //   //     var num = parseFloat(s[i])
+  //   //   if(num>=0){
+  //   //    t+=s[i];
+  //   //   }
+  //   // }
+  //  return t 
+  // let t = '';
+  // var reg = /\d/g;
+  // var regnum = reg.exec(s)
+  // console.log(regnum[0])
+  // while(regnum){
+  //   t+=regnum[0];
+  //   regnum = reg.exec(s)
+    
+  // }
+  // return t;
+  let t = '';
+  var reg = /\d/g;
+  var regnum = reg.exec(s)
+  
+  do {
+    t+=regnum[0];
+   regnum = reg.exec(s)
+} while (regnum);
+
+  return t;
+}
+//  var res = collectDigits('abc23def4');
+//  console.log(res)
+5./*编制一个将两个字符串交叉合并的函数Merge(s1,s2)，例如Merge(“123","abc"）的返回结果是"1a2b3c"，
+如果两个字符串的长度不同，那么就将多余部分直接合并到结果字符串的末尾，如Merge(“123456″,"abc"）的返回结果是"1a2b3c456"。*/
+function Merge(s1,s2){
+    var str = '';
+    if(s1.length>=s2.length){
+        for(var i = 0;i<s2.length;i++){
+           str += s1[i]+s2[i]
+          
+        }
+        str = str+s1.substring(s2.length)
+     
+    }else{
+      for(var i = 0;i<s1.length;i++){
+        str += s1[i]+s2[i]
+       
+     }
+     str = str+s2.substring(s1.length)
+    }
+
+    return str
+}
+;
+// console.log(Merge('123456','abc11111111111'));
+/**
+ * 关于Javascript中数组的说法中，不正确的是：（A）  
+  A.数组的长度必须在创建时给定，之后便不能改变 
+  B.由于数组是对象，因此创建数组需要使用new运算符
+  C.数组内元素的类型可以不同
+  D.数组可以在声明的同时进行初始化
+ */
+  // 设计一个程序，它（使用一个数组）接收用户输入的7门课程的成绩，然后在页面上显示其总成绩和平均分，并列出小于60的成绩。
+  function score(arr){
+    var mins = [];
+    var all=0;
+      for(var i=0;i<arr.length;i++){
+         
+         all+=arr[i];
+        
+        
+         if(arr[i]<60){
+          
+           mins.push(arr[i])
+         
+         }
+
+
+      }
+      var p = all/7
+      console.log(all);
+      console.log(p)
+      console.log(mins)
+      return {
+        '总分': all,
+        '平均分': p ,
+        '小于60分的':mins
+      }
+  }
+  // var arr = [34,56,77,88,99,78,98]
+  // var t = score(arr)
+  // console.log(t)
+  // 9.编写inherit()函数，它返回了一个继承自原型对象p的属性的新对象，这里使用ECMAScript 5中的Object.create()函数(如果存在的话)，
+  // 如果不存在Object.create()，则退化使用其他方法
+
+  // 8.设计一个函数DayOfYear(d)，它接必一个日期参数d，返回一个该日期是所在年份的第几天，如DayOfYear(2000,2,8)的返回值是39. 
+  
+  // （提示：①定义一个数组months=new Array（31,28,31,30,31,30,31,31,30,31，30,31）记录每个月少天：
+  // ②定义一个辅助函数IsLeapYear(y)判定某个年份是否闰年，以确定2月份的天数是28还是29。）
+
+  function isLwapYear(year){
+    let res = false;
+    if(year%4==0&&year%100!=0||year%400==0){
+      res = true;
+　　}
+    return res;
+  }
+function dayOfYear(d){
+    var months=[31,28,31,30,31,30,31,31,30,31, 30,31];
+    var day = 0;
+    var year = d[0];
+    // 平年还是闰年
+    let res = isLwapYear(year)
+    if(res) {
+      months = [31,29,31,30,31,30,31,31,30,31, 30,31];
+    }
+    for(var i = 0 ; i<d[1]-1;i++){
+       day+=months[i]
+    }
+    day=day+d[2]
+    console.log(day);
+    return day;
+  
+}
+// dayOfYear([2000,2,8])
+function add (a,b){
+  return  a+b;
+}
+function myAdd(x,y){
+   var num =  add.bind(this,x,y);
+   return  num
+}
+console.log(myAdd(1,2))
+function num (){
+
+}
+let res = add.call(num, 1,5);
+console.log(res, '----')
+// let o = {
+//   a: 10,
+//   b: 20
+// };
+// console.log(add.call(o, 5,6), '0000')
+// console.log(add.apply(o, [5,6]), '0000')
+// console.log(add.bind(o, 5,6)(), '0000')
+
+function Add() {
+  this.a = 3;
+  this.b = 5;
+  this.add = function() {
+    console.log(this,'----')
+    return this.a + this.b;
+  }
+}
+
+let o1 = {
+  a: 6,
+  b: 7
+};
+let a1 = new Add();
+console.log(a1)
+var xx = a1.__proto__==Add.prototype;
+var pp = Add.prototype.constructor==Add;
+console.log('kankan',xx,pp)
+
+console.log(a1.add.call(o1))
+// var a = 7;
+// var b = 9
+console.log(this)
+console.log(a1.add.call(this))
+

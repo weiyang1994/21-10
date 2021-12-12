@@ -31,8 +31,8 @@
 </head>
 
 <body>
-    <button>添加</button>
-    <ul>
+    <button id="btn" onclick=addLi() >添加</button>
+    <ul id='myUl'>
         <li>第1个</li>
         <li>第2个</li>
         <li>第3个</li>
@@ -43,10 +43,40 @@
 
 </html>
 <script>
+    function addLi(){
+
+        var btn = document.getElementById('btn');
+            var myLi = document.createElement('li')
+            var pushUl = document.getElementById('myUl');
+            var numLi= document.getElementsByTagName('li')
+            console.log(numLi.length)
+            myLi.innerHTML=`第${numLi.length+1}个`;
+            console.log(pushUl)
+             pushUl.appendChild(myLi); 
+    }
+   var mylis = document.querySelectorAll('li');
+   console.log(mylis) 
+   for(let i=0;i<mylis.length;i++){
+       var lis = mylis[i];
+       lis.onclick=function(){
+           for(let j= 0;j<mylis.length;j++){
+               var lis1= mylis[j]
+            //    console.log(lis1)
+               if(i==j){
+                   lis1.style.background='red'
+               }else{
+                   lis1.style.background='skyblue'
+               }
+           }
+          
+           
+
+       }
+
+   }
   /**
    * 1、点击添加按钮，添加一行li
    * 2、点击每个li的时候，将li的颜色变红，其他li保持不变
-  */
 
 
 
@@ -106,6 +136,6 @@
   //         e.target.style.backgroundColor = 'red'
   //     }
   // }
-
+    
 
 </script>
