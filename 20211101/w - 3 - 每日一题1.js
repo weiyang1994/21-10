@@ -359,6 +359,135 @@ console.log('kankan',xx,pp)
 console.log(a1.add.call(o1))
 // var a = 7;
 // var b = 9
-console.log(this)
-console.log(a1.add.call(this))
+// console.log(this)
+// console.log(a1.add.call(this))
+// 7.斐波纳契（Fibonacci）数列的第一项是1，第二项是1，以后各项都是前两项的和。请按逆序在页面中显示斐波纳契数列前10项的值
+// （即，如果计算出来的数列是1,1,2,3,5,8…，那么显示的顺序是…，8,5,3,2,1,1)，并要求每行显示6个数。
+// function fub(num){
+//   if(num==1 || num==2){
+//     console.log(' ++++++++ ',1,)
+//     return 1;
+//   }else{
+//     var tt = fub(num-1)+fub(num-2);
+//     console.log('---------', tt)
+//     return tt;
+//   }
 
+    
+  
+// }
+// console.log(fub(5))
+// function fibonacci(n) {
+//   if (n == 1 || n == 2) {
+//       return 1
+//   };
+//   return fibonacci(n - 2) + fibonacci(n - 1);
+// }
+// console.log(fibonacci(5))
+
+function fibs(n){
+  var n1 = 1, n2 = 1, sum;
+  var arr = [1,1];
+  var str= '';
+    for (let i = 2; i < n; i++) {
+        sum = n1 + n2
+        n1 = n2
+        n2 = sum;
+        arr.unshift(sum)
+    }
+    if(n>6){
+       for(var i =0;i<n;i++){
+         str = str + arr[i] + ',';
+       }
+    }
+    console.log(arr , str)
+    return sum
+}
+// fibs(8)
+
+// 找到数组里重复最多的项，要求区分字符串和数字。 [1,2,3,4,34,343,333, '111', 111','a','b']  -> 
+function qf(arr){
+   var obj1={};
+   var name = '';
+   var maxmun= 0;
+   for(var i=0;i<arr.length;i++){       //循环遍历数组
+      var item = arr[i]
+      
+      if(obj1[item]){
+        obj1[item]=obj1[item]+1    //设置对象值
+        if(obj1[item] > maxmun) {
+          maxmun = obj1[item];
+          name = item
+        }
+      }else{
+        obj1[item]=1;  //设置对象值
+      }
+   }
+  //  var name = '';
+  //  var maxmun= 0;
+  //  for (var xx in obj1){        //循环遍历对象
+  //    console.log('属性名：', xx, "属性值：", obj1[xx])
+  //   if(obj1[xx]>maxmun){
+  //     maxmun=obj1[xx];   //出现最多的次数
+  //     name= xx;       //出现最多项的名字
+
+  //   }
+  //  }
+   console.log(obj1, name,maxmun)
+   return name ;
+}
+var res1 = qf([1,2,3,'111','111','111','111','111','111',4,34,343,333,333,333,333,3333, '111','a','b'])
+console.log('重复最对的项是',res1)
+
+/**
+ * url问号传参解析, parseUrl()
+ * 输入： "https://phab.hillinsight.tech/project/board/42/query/open/?order=owner", 输出： { order: 'owner' }
+ * 输入： "http://www.baidu.com?name=lyj&age=20&sex=nan",  输出： { name: 'lyj', age: '20', sex: 'nan'}
+ * 
+ */
+function parseUrl(str){
+     var arr1=  str.split('?')
+     var arrRight= arr1[1];
+     var arr2 = arrRight.split('&');
+     var obj ={};
+     for(var i=0;i<arr2.length;i++){
+      var arr3= arr2[i].split('=');
+        console.log(arr3)
+        obj[arr3[0]]=arr3[1]
+      
+     }
+     console.log(obj)
+      
+}
+// parseUrl('https://phab.hillinsight.tech/project/board/42/query/open/?order=owner')
+// parseUrl('http://www.baidu.com?name=lyj&age=20&sex=nan')
+
+// 入职薪水10K，每年涨幅5%，50年后工资多少？
+function offer(gz,zf,years){
+      for (var i =0;i<years;i++){
+          gz+=gz*zf
+      } 
+      console.log(gz)
+}
+offer(10000,0.05,50)
+
+/**
+    求100-999之间的水仙花数。
+    水仙花：是一个3位数，该  三位数各位数字立方之和===该数本身，如 153 就是一个水仙花数
+ */
+
+ function  fllower(){
+      var arr =[];
+      for(var i=100;i<=999;i++){
+        // 101
+        var g = i%10;
+        var shi = ((i-g)/10)%10;
+        var bai = (i-g-shi*10)/100;
+        var sum = bai*bai*bai+shi*shi*shi+g*g*g;
+        if(i===sum){
+          arr.push(i);
+        }
+      }
+      console.log(arr)  
+ } 
+ fllower()  
