@@ -18,6 +18,9 @@
         3.3.2 如果是对象，遍历这个对象，对象值的判断执行 3.3.1 的操作。
     4.将resBool 返回
 */
+
+
+
 // 小技巧，可以调用一下函数，然后在函数里边就可以有值了，方便打印值调试。我举个例子。
 function isAllNumPositive(arr) {
   console.log(arr);    //这里打印就像在外边打印一样，arr 具体的值有了
@@ -232,20 +235,20 @@ function Merge(s1,s2){
            str += s1[i]+s2[i]
           
         }
-        str = str+s1.substring(s2.length)
+        str = str+s1.substr(s2.length)
      
     }else{
       for(var i = 0;i<s1.length;i++){
         str += s1[i]+s2[i]
        
      }
-     str = str+s2.substring(s1.length)
+     str = str+s2.substr(s1.length)
     }
 
     return str
 }
 ;
-// console.log(Merge('123456','abc11111111111'));
+ console.log(Merge('123456','aaaaaaa'));
 /**
  * 关于Javascript中数组的说法中，不正确的是：（A）  
   A.数组的长度必须在创建时给定，之后便不能改变 
@@ -488,6 +491,161 @@ offer(10000,0.05,50)
           arr.push(i);
         }
       }
-      console.log(arr)  
+      // console.log(arr)  
  } 
- fllower()  
+//  fllower()  
+/**
+ * 100元购物卡，牙刷5元，香皂2元、洗发水15元 100元正好花完有多少种可能。
+ */
+function useMoney(){
+    
+}
+
+/**
+ * 有一个棋盘，有64个方格，在第一个方格里面放1粒芝麻重量是0.00001kg，第二个里面放2粒，第三个里面放4，
+  棋盘上放的所有芝麻的重量
+ */function qipan(){
+    var sum=0;
+    for(var i =0;i<64;i++){
+       sum+=Math.pow(2,i)
+      
+    }
+    var w= sum*0.00001
+    console.log('重量是',w)
+ }
+// qipan()
+/**
+ * 打印100内与7相关的数
+ */
+function num(){
+  var arr = [];
+  var g ,shi
+  for(var i=0;i<=100;i++){
+     if(i%10==7 || Math.floor(i/10)==7){
+        arr.push(i)
+     }
+  }
+  console.log(arr)
+}
+// num()
+/**
+ * 公园里有一只猴子和一堆桃子，猴子每天吃掉桃子总数的一半，把剩下一半中扔掉一个坏的。
+    到第七天的时候，猴子睁开眼发现只剩下一个桃子。问公园里刚开始有多少个桃子？
+ */
+function peach(){
+  var p =1;
+  for(var i=7;i>0;i--){
+    p=(p+1)*2;
+  }
+  console.log(p)
+}
+peach()
+
+// var objxx={
+//    name:'zhansan '
+// }
+// var objxx2=objxx;
+// console.log(objxx.name,objxx2.name);
+// objxx2.name='lisi';
+// console.log(objxx.name,objxx2.name);
+/**
+ * var arr = [4, 0, 7, 9, 0, 0, 2, 6, 0, 3, 1, 0];
+    要求将数组中的0项去掉，将不为0的值存入一个新的数组，生成新的数组
+ */
+function  passNum(arr){
+  var arr1=[];
+  for(var i=0;i<arr.length;i++){
+    if(arr[i]!==0){
+      arr1.push(arr[i])
+    }
+  }
+  console.log(arr1)
+}
+// passNum([4, 0, 7, 9, 0, 0, 2, 6, 0, 3, 1, 0])
+
+/**
+ * 让数组中指定索引的元素排到首位. setIndexToFirst(index);
+ * 例子： 原数组 [1,2,3,4,5,6,7]， 将第3位放到首位， 调用setIndexToFirst(3)，结果变成 [4,1,2,3,5,6,7]
+ */
+function setIndexTiFirst(arr,index){
+   var p = arr[index];
+   arr.splice(index,1);
+   arr.unshift(p)
+   console.log(arr)
+}
+// setIndexTiFirst([1,2,3,4,5,6,7],3)
+
+
+/**
+ * 请简单写出匹配email地址的正则表达式
+ */
+function email(arr){
+  var regEmail =  /.{1,20}@.*\.(com|cn)$/;
+   var tt= regEmail.exec(arr)
+   if(tt==null){
+     console.log('输入的邮箱有误')
+   }else{
+     console.log(tt[0])
+   }
+}
+email('34181539@qq.com');
+email('132@163.com');
+
+/**
+ * 编写一个函数，实现以下功能：计算出一个字符串共有多少个单词组成。
+ * 'Good morning, I love JavaScript.' - 5
+ */
+function numberWord(str){
+  
+  var ww =  str.split(' ')
+  console.log(ww.length)
+}
+// numberWord('Good morning, I love JavaScript yee yeeyeye eyey eye.')
+/**
+ * 给你一个整数数组arr，请你帮忙统计数组中每个数的出现次数。如果每个数的出现次数都是独一无二的，就返回true；否则返回false.
+ * 示列1：输入：arr = [1,2,2,1,1,3]；输出：true
+    解释：在该数组中，1出现了3次，2出现了2次，3 只出现了1次。没有两个数的出现次数相同。
+    示列2：输入：arr = [1,2]；输出：false.   因为都出现1次，所以是false。
+ */
+function showNum(arr){
+  var obj={};
+  var flag=false;
+  var newArr=[];
+  for(var i = 0;i<arr.length;i++){
+    if(obj[arr[i]]){
+      obj[arr[i]]=obj[arr[i]]+1
+    }else{
+      obj[arr[i]]=1
+    }
+  }
+  var tt = Object.values(obj);
+   console.log(tt)
+  // for(var j=0;j<tt.length;j++){
+  //   for(var k=j+1;k<tt.length;k++){
+  //     if(tt[j]==tt[k]){
+  //       flag=true;
+
+  //       break;
+  //     }
+  //   }
+  //   if(flag==true){
+  //     break;
+  //   }
+  // }
+  // return flag;
+  for(var j=0;j<tt.length;j++){
+    var item = tt[j]
+    // console.log('---', newArr, item, newArr.indexOf[item], newArr.indexOf[item]==-1)
+    if(newArr.indexOf(item)==-1){//  判断 newArr 里 是否有 tt[j]  这一项
+      newArr.push(item)
+    }
+  }
+  // console.log(newArr)
+  if(tt.length==newArr.length){
+     flag=true
+  }
+  return flag;
+  
+}
+var wy = showNum([1,2 ,2,1,1,3]);
+console.log(wy) 
