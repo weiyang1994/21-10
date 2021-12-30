@@ -73,6 +73,25 @@ font-family: ArialMT;
 color: #5E6066;
 line-height: 28px;
 }
+  /* 中间头部样式 */
+.center-h {
+  width: 500px;
+  height: 74px;
+  background: red;
+  position: relative;
+}
+.h-yd{
+  
+}
+/* 中间中部样式 */
+.center-c{
+  width: 500px;
+  height: 484px;
+  background: #BCBFCC;
+}
+
+
+
 
 /* 
   1、不要直接拷贝蓝湖，蓝湖中是拷贝需要的过来，比如font-family是不需要拷贝的。

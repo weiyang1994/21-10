@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .page-header{
+      font-size: 16px;
+      /* color: beige; */
+    }
+    .item{
+      display: inline-block;
+      width: 30px;
+      height: 20px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h2 class='page-header'>点击切换颜色</h2>
+      <div class="item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
+    </div>
+    <script>
+      // 获取div元素
+      let items = document.getElementsByClassName('item')
+
+      // 循环遍历item
+      for(let i = 0; i<items.length;i++){
+          items[i].onclick = function(){
+            for(let j=0;j<items.length;j++){
+              items[j].style.background='white'
+            }
+            this.style.background='pink';
+          }
+      }
+       
+      // 对象的解构
+      const zhao = {
+        name:'张三',
+        age:27,
+        say:function(){
+          console.log('我是张三')
+        }
+      }
+      let {name,age,say} = zhao 
+      console.log(name,age,say)
+
+      // 自定义遍历数组
+       const banji = {
+         name:'wy',
+         stus:[
+           'zhangsan',
+           'xiaoming',
+           'lisi',
+           'kangkang'
+         ],
+         [Symbol.iterator](){
+            //索引变量
+            let index = 0 ;
+            let that = this
+            return{
+              next:function(){
+                if(index<that.stus.length){
+                   const result = {
+                    value:that.stus[index],done:false
+                  }
+                  index++;
+                  return result;
+                }else{
+                  return{
+                    value:undefined,done:true
+                  }
+                }
+              }
+            }
+         }
+       }
+       for(let v of banji){
+         console.log(v)
+       }
+       
+       function * gen(){
+         console.log(111);
+         yield 'xxx';
+         console.log(2222);
+         yield 'yyyy'
+         console.log(333)
+       }
+      //  let  iterator = gen();
+      //  iterator.next()
+      //  iterator.next()
+      //  iterator.next()
+       for(let v of gen()){
+         console.log(v)
+       }
+
+      let arr1=[1,2,3]
+      let arr2 = ['a','b','c']
+      let arr3 = [...arr1,arr2]
+      console.log(arr3)
+
+
+      const obj ={
+        name:'wy',
+        age:27,
+        sex:'boy'
+      }
+      const obj2 = {
+        name:'lyj',
+        age:27,
+        habby:'anqila'
+      }
+      const obj3 = {
+        ...obj2,
+        ...obj
+      }
+      console.log(obj3)
+      // 只能转换字符串
+      let arr4 = Array.from('abc')
+      console.log(arr4)
+      // 不能转换数字，对象
+      let arr5 = Array.from(1)
+      console.log(arr5)
+
+    </script>
+</body>
+</html>
