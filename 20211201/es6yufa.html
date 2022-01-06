@@ -127,6 +127,115 @@
       let arr5 = Array.from(1)
       console.log(arr5)
 
+      const p = new Promise((resolve,reject)=>{
+      // 发送Ajax 请求 
+      //接口地址：https://api.apiopen.top/getjoke
+
+      // 1.创建对象
+      const xhr  = new XMLHttpRequest()
+      // 2.初始化
+      xhr.open('GET','https://api.it120.cc/doc.html')
+      // 3.发送
+      xhr.send()
+      // 4.绑定事件 ，处理相应结果
+      xhr.onreadystatechange = function(){
+        if(xhr.readyState === 4){
+          if(xhr.status >=200  && xhr.status< 300){
+            // 表示成功
+            // console.log(xhr.response)
+            resolve(xhr.response)
+
+          }else{
+            // console.error(xhr.status)
+            reject(xhr.status)
+          }
+        }
+      }
+    })
+    p.then(function(value){
+      // console.log(value)
+    },function(reason){
+      // console.error(reason)
+    })
+
+
+    // catch
+     const p1 = new Promise((resolve,reject)=>{
+       setTimeout(()=>{
+        // 设置 p1 对象的状态为失败 ，并且设置失败的值
+        reject('失败啦')
+       })
+     },1000)
+
+    //  p1.then(function(value){},function(reason){
+    //    console.error(reason)
+    //  })
+
+    p1.catch(function(reason){
+      // console.warn(reason)
+    })
+
+    // set 实践
+    let arr11 = [1,2,3,4,5,4,3,2,1];
+    // 1 数组去重 
+    let result = [...new Set(arr11)]
+    // console.log(result)
+    // 2.交集
+    let arr22 = [4,5,6,5,6];
+    // let result2 = [...new Set(arr11)].filter(item=>{
+    //     let s2 = new Set(arr22);
+    //     if(s2.has(item)){
+    //       return true 
+    //     }else{
+    //       return false
+    //     }
+
+    // })
+    let result2 = [...new Set(arr11)].filter(item =>new Set(arr22).has(item))
+    console.log(result2)
+
+    // 3.并集
+    let union =[...new Set([...arr11,...arr22])] 
+
+    console.log(union)
+      //4.差集 
+      let diff = [...new Set(arr11)].filter(item =>!(new Set(arr22).has(item)))
+      console.log(diff)
+
+
+      // class
+      //手机
+      function Phone(brand,price){
+        this.brand = brand;
+        this.price = price;
+      }
+      Phone.prototype.call = function(){
+        console.log('我可以打电话', this, this.brand)
+        
+      }
+      // 实例化对象
+      let huawei = new Phone('华为',5999)
+      //  console.log(Huawei)
+      huawei.call('nan')
+      console.log(huawei)
+      // console.log(huawei.prototype, huawei.prototype.constructor === Phone  )// XXXXX 不成立
+      // let huawei2 = new Phone('华为11111',5999)
+      // console.log(huawei2)
+      // huawei2.call()
+      // new 实例的this 指向这个构造函数实例
+
+      class Phone1{
+        // 构造方法
+        constructor(brand,price){
+          this.brand = brand;
+          this,price = price
+        }
+        call(){
+          console.log('我可以打电话', this, this.brand)
+        }
+      }
+      let onePlus = new Phone1('一加',4999)
+      console.log(onePlus)
     </script>
 </body>
 </html>

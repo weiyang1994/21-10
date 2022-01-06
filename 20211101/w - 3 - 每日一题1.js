@@ -649,3 +649,76 @@ function showNum(arr){
 }
 var wy = showNum([1,2 ,2,1,1,3]);
 console.log(wy) 
+
+
+// * 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。
+//   不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
+
+//   示例 1：
+//   输入：nums = [1,1,2]
+//   输出：2, nums = [1,2]
+//   解释：函数应该返回新的长度 2 ，并且原数组 nums 的前两个元素被修改为 1, 2 。不需要考虑数组中超出新长度后面的元素。
+//   示例 2：
+
+//   输入：nums = [0,0,1,1,1,2,2,3,3,4]
+//   输出：5, nums = [0,1,2,3,4]
+//   解释：函数应该返回新的长度 5 ， 并且原数组 nums 的前五个元素被修改为 0, 1, 2, 3, 4 。不需要考虑数组中超出新长度后面的元素。
+//  */
+function nums(nums){
+  // return Array.from(new Set(nums)).length
+  // console.log([...new Set(nums)].length )
+  if(!Array.isArray(nums) || nums.length==0){
+    console.log('type err')
+    return nums
+  }
+  let left = 0;
+  let right = 0;
+  while(right<nums.length){
+    if(nums[left]==nums[right]){
+      right++
+      console.log('l---', nums)
+    } else{
+      left++;
+      let temp = nums[left]
+      nums[left]=nums[right]
+      nums[right]=temp;
+      right++
+      console.log('l---', nums)
+    }
+  }
+  console.log(left+1)
+  return left+1
+  
+}
+  
+console.log(nums([0,0,1,1,1,2,2,3,3,4])) 
+
+// * 给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。
+//  * 
+//  *  示例 1:
+//     输入: nums = [1,2,3,4,5,6,7], k = 3
+//     输出: [5,6,7,1,2,3,4]
+//     解释:
+//     向右轮转 1 步: [7,1,2,3,4,5,6]
+//     向右轮转 2 步: [6,7,1,2,3,4,5]
+//     向右轮转 3 步: [5,6,7,1,2,3,4]
+
+//     示例 2:
+//     输入：nums = [-1,-100,3,99], k = 2
+//     输出：[3,99,-1,-100]
+//     解释: 
+//     向右轮转 1 步: [99,-1,-100,3]
+//     向右轮转 2 步: [3,99,-1,-100]
+//  */
+
+
+function nums(arr,k){
+  for(var i=0;i<k;i++){
+    var t= arr.pop()
+     arr.unshift(t)
+  }
+  console.log(arr)
+  return arr
+
+}
+nums([1,2,3],1)

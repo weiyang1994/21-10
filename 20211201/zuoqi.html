@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <script>
+      // 冒泡排序   bubbleSort([3,1,5,2,8])
+      function bubbleSort(arr){
+        for(var i=0;i<arr.length;i++){
+          for(var j=0;j<arr.length-1-i;j++){
+             var temp =arr[j];
+             if(arr[j]>arr[j+1]){
+               arr[j]=arr[j+1];
+               arr[j+1]=temp;
+
+             }
+          }
+        }
+        return arr
+      }
+      var t= bubbleSort([3,1,5,2,8])
+
+      console.log(t)
+
+
+    </script>
+
+
+    <script>
+      // promise 练习
+        const p = new Promise (function(resolve,reject){
+          setTimeout(function(){
+            // let data= '数据信息';
+            
+
+            // resolve(data)
+            let err = '数据读取失败';
+            reject(err)
+          },1000)
+        })
+
+        p.then(function(value){
+          console.log(value)
+        },function(reason){
+          console.log(reason)
+        })
+    </script>
+</body>
+</html>
