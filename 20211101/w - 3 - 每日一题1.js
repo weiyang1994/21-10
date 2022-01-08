@@ -51,7 +51,7 @@ function isAllNumPositive(arr) {
       }
     }
   }
-  console.log(resBool)
+  // console.log(resBool)
   return resBool;
 }
 // 这里调用一下，把实参传入具体的值。 先把这个调通了，再去调其他调用案例。比如，这个实参里边没有对象，那么 3.3.2 可以先不处理；调用有对象的时候再去处理。
@@ -149,12 +149,12 @@ function sortAge(arr){
     }
     return arr
 }
-let mmp  = sortAge([
-  {age: 19, name:'Jack'},
-  {age: 5, name:'Apple'},
-  {age: 12, name:'Lynn'},
-  {age: 25, name:'David'}
-]);
+// let mmp  = sortAge([
+//   {age: 19, name:'Jack'},
+//   {age: 5, name:'Apple'},
+//   {age: 12, name:'Lynn'},
+//   {age: 25, name:'David'}
+// ]);
 // console.log(mmp)
 
 // 1.编写程序，根据用户输入的数值，计算其平方、平方根。
@@ -172,7 +172,7 @@ function ros(){
   var num = Math.floor((Math.random() * 100) + 1);
   // console.log('随机数是'+num)
 }
-ros();
+// ros();
 
 // 3.设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“
  
@@ -248,7 +248,7 @@ function Merge(s1,s2){
     return str
 }
 ;
- console.log(Merge('123456','aaaaaaa'));
+//  console.log(Merge('123456','aaaaaaa'));
 /**
  * 关于Javascript中数组的说法中，不正确的是：（A）  
   A.数组的长度必须在创建时给定，之后便不能改变 
@@ -326,7 +326,7 @@ function myAdd(x,y){
    var num =  add.bind(this,x,y);
    return  num
 }
-console.log(myAdd(1,2))
+// console.log(myAdd(1,2))
 function num (){
 
 }
@@ -359,7 +359,7 @@ var xx = a1.__proto__==Add.prototype;
 var pp = Add.prototype.constructor==Add;
 console.log('kankan',xx,pp)
 
-console.log(a1.add.call(o1))
+// console.log(a1.add.call(o1))
 // var a = 7;
 // var b = 9
 // console.log(this)
@@ -436,7 +436,7 @@ function qf(arr){
 
   //   }
   //  }
-   console.log(obj1, name,maxmun)
+  //  console.log(obj1, name,maxmun)
    return name ;
 }
 var res1 = qf([1,2,3,'111','111','111','111','111','111',4,34,343,333,333,333,333,3333, '111','a','b'])
@@ -472,7 +472,7 @@ function offer(gz,zf,years){
       } 
       console.log(gz)
 }
-offer(10000,0.05,50)
+// offer(10000,0.05,50)
 
 /**
     求100-999之间的水仙花数。
@@ -539,7 +539,7 @@ function peach(){
   }
   console.log(p)
 }
-peach()
+// peach()
 
 // var objxx={
 //    name:'zhansan '
@@ -647,8 +647,8 @@ function showNum(arr){
   return flag;
   
 }
-var wy = showNum([1,2 ,2,1,1,3]);
-console.log(wy) 
+// var wy = showNum([1,2 ,2,1,1,3]);
+// console.log(wy) 
 
 
 // * 给你一个有序数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。
@@ -676,22 +676,22 @@ function nums(nums){
   while(right<nums.length){
     if(nums[left]==nums[right]){
       right++
-      console.log('l---', nums)
+      // console.log('l---', nums)
     } else{
       left++;
       let temp = nums[left]
       nums[left]=nums[right]
       nums[right]=temp;
       right++
-      console.log('l---', nums)
+      // console.log('l---', nums)
     }
   }
-  console.log(left+1)
+  // console.log(left+1)
   return left+1
   
 }
   
-console.log(nums([0,0,1,1,1,2,2,3,3,4])) 
+// console.log(nums([0,0,1,1,1,2,2,3,3,4])) 
 
 // * 给你一个数组，将数组中的元素向右轮转 k 个位置，其中 k 是非负数。
 //  * 
@@ -712,13 +712,73 @@ console.log(nums([0,0,1,1,1,2,2,3,3,4]))
 //  */
 
 
-function nums(arr,k){
-  for(var i=0;i<k;i++){
-    var t= arr.pop()
-     arr.unshift(t)
-  }
-  console.log(arr)
-  return arr
+// function nums(arr,k){
+//   for(var i=0;i<k;i++){
+//     var t= arr.pop()
+//      arr.unshift(t)
+//   }
+//   console.log(arr)
+//   return arr
 
+// }
+// nums([1,2,3],1)
+// function nums(arr,k){
+  // for(var i = 0;i<k;i++){
+  //   var t= arr.splice(arr.length-1,1)[0]
+  //   var arr2= arr.splice(0,0,t)
+  // }
+  
+  // let m = k%arr.length;
+  // let t = arr.splice(-m,m)
+  // arr.splice(0,0, ...t)
+  
+  
+  // console.log(arr)
+
+  // return arr
+// }
+  // nums([1,2],3)//[2,1]
+//  nums([-1,-100,3,99], 2)
+
+
+
+// * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+
+// 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+
+// 你可以按任意顺序返回答案。
+
+// 示例 1：
+// 输入：nums = [2,7,11,15], target = 9
+// 输出：[0,1]
+// 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。
+
+// 示例 2：
+// 输入：nums = [3,2,4], target = 6
+// 输出：[1,2]
+
+// 示例 3：
+// 输入：nums = [3,3], target = 6
+// 输出：[0,1]
+// */
+
+function nums(arr,t){
+  let res;
+  for(let i = 0;i<arr.length;i++){
+      console.log('wai-----', i)
+      for(let j =i+1;j<arr.length;j++){
+        console.log('li--', j)
+        if(arr[i]+arr[j]==t){
+           res = [i,j]
+           break ;
+        }
+      }
+      if(res){   //Boolean(res)
+        break;
+      }
+  }
+  return res
 }
-nums([1,2,3],1)
+// nums([2,7,11,15],9)
+let  pp1 = nums([3,2,4],6)
+console.log(pp1)
