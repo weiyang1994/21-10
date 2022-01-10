@@ -780,5 +780,6 @@ function nums(arr,t){
   return res
 }
 // nums([2,7,11,15],9)
-let  pp1 = nums([3,2,4],6)
+// let  pp1 = nums([3,2,4],6)
+let  pp1 = nums([3,3],6)
 console.log(pp1)
